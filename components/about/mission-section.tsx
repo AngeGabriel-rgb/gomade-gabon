@@ -6,18 +6,18 @@ export default function MissionSection() {
   const pillars = [
     {
       icon: Target,
-      title: 'Notre Mission',
-      description: 'Fournir aux décideurs les insights fiables dont ils ont besoin pour transformer leurs marchés et atteindre leurs objectifs stratégiques.',
+      title: 'Notre mission',
+      description: 'Mieux connaitre vos marchés et vos consommateurs; Identifier les dysfonctionnements de votre organisation; Faciliter votre prise de décision grâce à des données objectives et fiables; Devenir un acteur international majeur dans le domaine des études de marchés et de sondages au Gabon et dans la sous-région d\'Afrique centrale.',
     },
     {
       icon: Lightbulb,
-      title: 'Notre Vision',
-      description: 'Être le premier cabinet gabonais de référence en études de marché et sondages d\'opinion, reconnu pour son excellence et son impact.',
+      title: 'Qui sommes-nous ?',
+      description: 'Nous sommes une entreprise innovante qui apporte des solutions d\'études et de conseil aux entreprises par la fourniture des données fiables, actualisées et exploitables grâce à une équipe expérimentée.',
     },
     {
       icon: Heart,
-      title: 'Nos Valeurs',
-      description: 'Intégrité, rigueur, innovation et engagement envers nos clients constituent les fondations de notre travail quotidien.',
+      title: 'Nos valeurs',
+      description: 'L\'excellence, le respect du client, la franchise et l\'intégrité, le professionnalisme et la confidentialité guident chacune de nos actions.',
     },
   ]
 

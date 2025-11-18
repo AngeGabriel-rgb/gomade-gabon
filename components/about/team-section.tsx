@@ -3,24 +3,24 @@
 export default function TeamSection() {
   const team = [
     {
-      name: 'Jean-Pierre Leblanc',
-      role: 'Directeur Général',
-      bio: 'Plus de 15 ans d\'expertise en études de marché',
+      name: 'Direction',
+      role: 'Direction Générale',
+      bio: 'Pilotage stratégique et accompagnement des clients.'
     },
     {
-      name: 'Marie Dupont',
-      role: 'Directrice des Études',
-      bio: 'Spécialiste en méthodologies quantitatives et qualitatives',
+      name: 'Équipe d\'Études',
+      role: 'Analystes et Consultants',
+      bio: 'Experts en méthodes quantitatives et qualitatives pour fournir des données exploitables.'
     },
     {
-      name: 'Paul Martin',
-      role: 'Responsable Sondages',
-      bio: 'Expert en mesure d\'opinion et analyse statistique',
+      name: 'Responsable Sondages',
+      role: 'Mesure d\'opinion',
+      bio: 'Conception et mise en œuvre de sondages sur mesure.'
     },
     {
-      name: 'Sophie Rousseau',
-      role: 'Chef de Projet',
-      bio: 'Pilotage des études et satisfaction client',
+      name: 'Chef de Projet',
+      role: 'Coordination & Qualité',
+      bio: 'Pilotage des études et garantie de la qualité des livrables.'
     },
   ]
 

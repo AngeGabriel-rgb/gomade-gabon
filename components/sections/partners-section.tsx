@@ -2,29 +2,27 @@
 
 export default function PartnersSection() {
   const partners = [
-    { name: 'Partenaire 1', initial: 'P1' },
-    { name: 'Partenaire 2', initial: 'P2' },
-    { name: 'Partenaire 3', initial: 'P3' },
-    { name: 'Partenaire 4', initial: 'P4' },
+    { name: 'Partenaire 1', logo: '/partenaires/ipsos.png' },
   ]
 
   return (
-    <section className="py-16 bg-muted">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-muted-foreground text-sm font-semibold mb-12 uppercase tracking-wide">
-          Partenaires de confiance
-        </p>
+    <section className="py-20 bg-gray-100">
+      <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 className="text-center text-gray-800 font-extrabold uppercase tracking-wider text-3xl md:text-5xl leading-tight mb-16">
+        CEUX QUI NOUS FONT CONFIANCE
+      </h2>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16">
           {partners.map((partner) => (
             <div
               key={partner.name}
-              className="flex items-center justify-center p-6 bg-card rounded-lg border border-border hover:border-accent transition-colors"
+              className="flex items-center justify-center"
             >
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                <span className="font-bold text-primary text-sm">{partner.initial}</span>
-              </div>
-              <span className="ml-4 font-medium text-foreground hidden sm:inline">{partner.name}</span>
+              <img
+                src={partner.logo || "/placeholder.svg"}
+                alt={partner.name}
+                className="h-12 md:h-14 object-contain grayscale hover:grayscale-0 transition-all duration-300"
+              />
             </div>
           ))}
         </div>

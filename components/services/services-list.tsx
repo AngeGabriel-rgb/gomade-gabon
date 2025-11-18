@@ -8,19 +8,19 @@ export default function ServicesList() {
       id: 'etudes',
       icon: BarChart3,
       title: 'Études de Marché',
-      description: 'Analyse approfondie de votre marché, concurrence et opportunités pour une stratégie éclairée.',
+      description: 'Nous intervenons dans la réalisation des études de marché pour vérifier la cohérence commerciale d\'un projet et analyser les tendances de votre futur marché.',
     },
     {
       id: 'sondages',
       icon: TrendingUp,
       title: 'Sondages d\'Opinion',
-      description: 'Mesure rigoureuse de l\'opinion publique pour vos campagnes et initiatives.',
+      description: 'Grâce à nos sondages sur mesure, vous identifierez les éléments de satisfaction de vos clients et pourrez mettre en place des actions correctives ou repenser votre stratégie.',
     },
     {
       id: 'enquetes',
       icon: PieChart,
       title: 'Enquêtes Marketing',
-      description: 'Collecte et analyse de données pour optimiser vos stratégies et augmenter votre ROI.',
+      description: 'Collecte et analyse stratégique de données pour optimiser vos campagnes marketing, segmenter votre audience et maximiser votre ROI.',
     },
   ]
 
