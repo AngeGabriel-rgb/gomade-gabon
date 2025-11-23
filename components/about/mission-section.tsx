@@ -1,42 +1,78 @@
-'use client'
+"use client"
 
-import { Lightbulb, Target, Heart } from 'lucide-react'
+import Image from 'next/image';
 
 export default function MissionSection() {
-  const pillars = [
-    {
-      icon: Target,
-      title: 'Notre mission',
-      description: 'Mieux connaitre vos marchés et vos consommateurs; Identifier les dysfonctionnements de votre organisation; Faciliter votre prise de décision grâce à des données objectives et fiables; Devenir un acteur international majeur dans le domaine des études de marchés et de sondages au Gabon et dans la sous-région d\'Afrique centrale.',
-    },
-    {
-      icon: Lightbulb,
-      title: 'Qui sommes-nous ?',
-      description: 'Nous sommes une entreprise innovante qui apporte des solutions d\'études et de conseil aux entreprises par la fourniture des données fiables, actualisées et exploitables grâce à une équipe expérimentée.',
-    },
-    {
-      icon: Heart,
-      title: 'Nos valeurs',
-      description: 'L\'excellence, le respect du client, la franchise et l\'intégrité, le professionnalisme et la confidentialité guident chacune de nos actions.',
-    },
-  ]
-
   return (
-    <section className="py-20 bg-muted">
+    <section className="py-16 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {pillars.map((pillar) => {
-            const IconComponent = pillar.icon
-            return (
-              <div key={pillar.title} className="p-8 bg-card rounded-xl border border-border hover:border-accent transition-colors">
-                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
-                  <IconComponent className="w-6 h-6 text-accent" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{pillar.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{pillar.description}</p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          
+          {/* Notre Mission - Large card on the left */}
+          <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden group">
+            <Image
+              src="https://i.pinimg.com/736x/30/df/82/30df8204fdaacc4db94bb6f77ffe6a46.jpg"
+              alt="Notre mission"
+              fill
+              style={{ objectFit: 'cover' }}
+              quality={80}
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+            <div className="absolute bottom-0 left-0 p-8 text-white">
+              <span className="text-red-600 font-bold text-sm uppercase tracking-wide">Notre Mission</span>
+              <h2 className="text-3xl lg:text-4xl font-bold mt-2 leading-tight">
+                Faciliter votre prise de décision grâce à des données objectives et fiables.
+              </h2>
+            </div>
+          </div>
+
+          {/* Right column with two stacked cards */}
+          <div className="flex flex-col gap-6">
+            
+            {/* Qui sommes-nous ? - SANS DÉGRADÉ DE COULEUR DEVANT L'IMAGE */}
+            <div className="relative h-[240px] rounded-2xl overflow-hidden p-8 bg-white"> {/* Ajout de bg-white pour un fond blanc si l'image est très transparente */}
+              
+              {/* IMAGE DE FOND : Opacité ajustée à 0.2 pour plus de présence */}
+              <Image
+                src="https://i.pinimg.com/736x/d0/f5/24/d0f5240f66c42235b53bdc51d7e12f23.jpg"
+                alt="Motif de fond"
+                fill
+                style={{ objectFit: 'cover', opacity: 0.2 }} 
+                quality={60}
+              />
+              
+              {/* ❌ RETIRÉ : L'élément div du dégradé a été supprimé ici. */}
+              
+              <div className="relative z-10">
+                <span className="text-red-600 font-bold text-sm uppercase tracking-wide">Qui sommes-nous ?</span>
+                <h3 className="text-2xl font-bold text-gray-900 mt-2 leading-tight">Une entreprise innovante.</h3>
+                <p className="mt-4 text-sm text-gray-700 leading-relaxed">
+                  Nous apportons des solutions d'études et de conseil aux entreprises par la fourniture des données
+                  fiables, actualisées et exploitables grâce à une équipe.
+                </p>
               </div>
-            )
-          })}
+            </div>
+
+            {/* Nos valeurs */}
+            <div className="relative h-[240px] rounded-2xl overflow-hidden group">
+              <Image
+                src="https://i.pinimg.com/736x/fe/eb/75/feeb75183886b4e710ea2990a3131b38.jpg"
+                alt="Nos valeurs"
+                fill
+                style={{ objectFit: 'cover' }}
+                quality={80}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-8 text-white">
+                <span className="text-red-600 font-bold text-sm uppercase tracking-wide">Nos Valeurs</span>
+                <h3 className="text-2xl font-bold mt-2 leading-tight">Excellence, respect et intégrité.</h3>
+                <p className="mt-2 text-sm text-white/90">
+                  Le professionnalisme et la confidentialité guident chacune de nos actions.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

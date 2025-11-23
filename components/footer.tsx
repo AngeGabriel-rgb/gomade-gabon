@@ -30,7 +30,6 @@ export default function Footer() {
                 height={100} 
                 className="rounded"
               />
-              <span className="font-bold text-lg">GOMADE GABON</span>
             </Link>
             
             <p className="text-sm opacity-90 max-w-xs mx-auto md:mx-0"> {/* Ajout de mx-auto pour centrer la description */}

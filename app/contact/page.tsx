@@ -3,18 +3,37 @@ import Footer from '@/components/footer'
 import ScrollToTop from '@/components/scroll-to-top'
 import ContactForm from '@/components/contact/contact-form'
 import ContactInfo from '@/components/contact/contact-info'
+import GoBackButton from '@/components/go-back-button' 
+import Breadcrumb from '@/components/ui/breadcrumb'
 
 export default function ContactPage() {
+  
+  const contactPaths = [
+    { label: 'Nous Contacter', href: '/contact', isCurrent: true },
+  ];
+  
   return (
     <>
       <Header />
       <main className="pt-16">
-        <section className="pt-32 pb-20">
+
+        {/* En-tête de page avec Bouton Retour et Fil d'Ariane */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4">
+          <div className="flex items-center gap-4 mb-2">
+            <GoBackButton />
+            <h1 className="text-3xl font-bold text-gray-900">Nous Contacter</h1>
+          </div>
+          
+          <div className="ml-2">
+            <Breadcrumb paths={contactPaths} />
+          </div>
+        </div>
+        
+        <section className="pb-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
             <div className="text-center mb-16">
-              <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
-                Nous Contacter
-              </h1>
+              {/* Le titre original est masqué/retiré car le h1 est maintenant en haut */}
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Avez des questions? Nous serions ravis d'en discuter avec vous.
               </p>

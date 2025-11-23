@@ -1,109 +1,58 @@
-import * as React from 'react'
-import { Slot } from '@radix-ui/react-slot'
-import { ChevronRight, MoreHorizontal } from 'lucide-react'
+// src/components/ui/breadcrumb.tsx
+import Link from 'next/link';
 
-import { cn } from '@/lib/utils'
-
-function Breadcrumb({ ...props }: React.ComponentProps<'nav'>) {
-  return <nav aria-label="breadcrumb" data-slot="breadcrumb" {...props} />
+interface BreadcrumbProps {
+  paths: {
+    label: string;
+    href: string;
+    isCurrent?: boolean;
+  }[];
 }
 
-function BreadcrumbList({ className, ...props }: React.ComponentProps<'ol'>) {
+export default function Breadcrumb({ paths }: BreadcrumbProps) {
   return (
-    <ol
-      data-slot="breadcrumb-list"
-      className={cn(
-        'text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5',
-        className,
-      )}
-      {...props}
-    />
-  )
-}
-
-function BreadcrumbItem({ className, ...props }: React.ComponentProps<'li'>) {
-  return (
-    <li
-      data-slot="breadcrumb-item"
-      className={cn('inline-flex items-center gap-1.5', className)}
-      {...props}
-    />
-  )
-}
-
-function BreadcrumbLink({
-  asChild,
-  className,
-  ...props
-}: React.ComponentProps<'a'> & {
-  asChild?: boolean
-}) {
-  const Comp = asChild ? Slot : 'a'
-
-  return (
-    <Comp
-      data-slot="breadcrumb-link"
-      className={cn('hover:text-foreground transition-colors', className)}
-      {...props}
-    />
-  )
-}
-
-function BreadcrumbPage({ className, ...props }: React.ComponentProps<'span'>) {
-  return (
-    <span
-      data-slot="breadcrumb-page"
-      role="link"
-      aria-disabled="true"
-      aria-current="page"
-      className={cn('text-foreground font-normal', className)}
-      {...props}
-    />
-  )
-}
-
-function BreadcrumbSeparator({
-  children,
-  className,
-  ...props
-}: React.ComponentProps<'li'>) {
-  return (
-    <li
-      data-slot="breadcrumb-separator"
-      role="presentation"
-      aria-hidden="true"
-      className={cn('[&>svg]:size-3.5', className)}
-      {...props}
-    >
-      {children ?? <ChevronRight />}
-    </li>
-  )
-}
-
-function BreadcrumbEllipsis({
-  className,
-  ...props
-}: React.ComponentProps<'span'>) {
-  return (
-    <span
-      data-slot="breadcrumb-ellipsis"
-      role="presentation"
-      aria-hidden="true"
-      className={cn('flex size-9 items-center justify-center', className)}
-      {...props}
-    >
-      <MoreHorizontal className="size-4" />
-      <span className="sr-only">More</span>
-    </span>
-  )
-}
-
-export {
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-  BreadcrumbEllipsis,
+    <nav className="flex" aria-label="Breadcrumb">
+      <ol className="inline-flex items-center space-x-2 sm:space-x-3 text-sm font-medium">
+        
+        {/* Lien vers l'Accueil */}
+        <li className="inline-flex items-center">
+          <Link 
+            href="/" 
+            className="text-gray-500 hover:text-blue-600 transition-colors duration-150"
+          >
+            Accueil
+          </Link>
+        </li>
+        
+        {/* Itération sur les chemins spécifiques de la page */}
+        {paths.map((path, index) => (
+          <li key={path.href} className="flex items-center">
+            {/* Séparateur */}
+            <svg 
+              className="w-4 h-4 text-gray-400" 
+              fill="currentColor" 
+              viewBox="0 0 20 20"
+              aria-hidden="true"
+            >
+              <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" fillRule="evenodd" />
+            </svg>
+            
+            {/* Lien ou Texte de la page actuelle */}
+            {path.isCurrent ? (
+              <span className="ml-2 text-gray-700">
+                {path.label}
+              </span>
+            ) : (
+              <Link
+                href={path.href}
+                className="ml-2 text-gray-500 hover:text-blue-600 transition-colors duration-150"
+              >
+                {path.label}
+              </Link>
+            )}
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
 }
