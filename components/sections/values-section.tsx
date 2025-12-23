@@ -1,7 +1,17 @@
 "use client"
 
-import Image from 'next/image' // Importez le composant Image de Next.js
+import { useEffect } from "react"
+import Image from "next/image"
 import { Trophy, Handshake, Briefcase, Lock, Users } from "lucide-react"
+
+declare global {
+  interface Window {
+    UnicornStudio?: {
+      isInitialized: boolean
+      init: () => void
+    }
+  }
+}
 
 export default function ValuesSection() {
   const values = [
@@ -20,11 +30,11 @@ export default function ValuesSection() {
       bgColor: "bg-blue-50/80",
     },
     {
-    icon: Users,
-    title: "La franchise et l'intégrité",
-    description: "Nous ne proposons rien au-delà des compétences qui sont nôtres.",
-    gradient: "from-purple-400 to-pink-500",
-    bgColor: "bg-purple-50/80",
+      icon: Users,
+      title: "La franchise et l'intégrité",
+      description: "Nous ne proposons rien au-delà des compétences qui sont nôtres.",
+      gradient: "from-purple-400 to-pink-500",
+      bgColor: "bg-purple-50/80",
     },
     {
       icon: Briefcase,
@@ -44,20 +54,43 @@ export default function ValuesSection() {
     },
   ]
 
+  useEffect(() => {
+    if (typeof window === "undefined") return
+
+    if (!window.UnicornStudio) {
+      window.UnicornStudio = { isInitialized: false, init: () => {} }
+      const script = document.createElement("script")
+      script.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js"
+      script.onload = () => {
+        if (window.UnicornStudio && !window.UnicornStudio.isInitialized) {
+          window.UnicornStudio.init()
+          window.UnicornStudio.isInitialized = true
+        }
+      }
+      document.head.appendChild(script)
+    } else if (!window.UnicornStudio.isInitialized) {
+      window.UnicornStudio.init()
+      window.UnicornStudio.isInitialized = true
+    }
+  }, [])
+
   return (
     <section className="py-24 relative overflow-hidden text-white">
+      {/* Animation UnicornStudio en arrière-plan */}
+      <div data-us-project="p7Ff6pfTrb5Gs59C7nLC" className="absolute w-full h-full left-0 top-0 -z-10"></div>
+
       {/* Conteneur pour l'image de fond next/image */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-20">
         <Image
-          src="https://i.pinimg.com/1200x/73/a0/74/73a074286e4ed8ca6c36345232b2fb39.jpg" // REMPLACEZ PAR LE CHEMIN DE VOTRE IMAGE
+          src="https://i.pinimg.com/1200x/73/a0/74/73a074286e4ed8ca6c36345232b2fb39.jpg"
           alt="Image de fond pour la section Valeurs"
-          fill // Remplit le parent
-          style={{ objectFit: 'cover' }} // S'assure que l'image couvre le conteneur
-          quality={80} // Qualité de l'image (optionnel, 75 par défaut)
-          priority // Charge l'image prioritairement si elle est au-dessus du pli
+          fill
+          className="object-cover"
+          quality={80}
+          priority
         />
         {/* Overlay pour assombrir l'image et améliorer la lisibilité du texte */}
-        <div className="absolute inset-0 bg-black opacity-60"></div> {/* Ajustez l'opacité (0-100) */}
+        <div className="absolute inset-0 bg-black opacity-60"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -69,7 +102,7 @@ export default function ValuesSection() {
         </div>
 
         <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16">
-          {values.slice(0, 5).map((value, index) => {
+          {values.map((value) => {
             const IconComponent = value.icon
             return (
               <div key={value.title} className="group relative">

@@ -9,9 +9,9 @@ export default function DirectorSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Image Section */}
-          <div className="relative aspect-[4/3] lg:aspect-square rounded-2xl overflow-hidden shadow-2xl">
+          <div className="relative aspect-[4/4] lg:aspect-square rounded-2xl overflow-hidden shadow-2xl">
             <Image
-              src="https://i.pinimg.com/736x/e2/b8/48/e2b8485465354adc9d2fac66a33484c0.jpg"
+              src="directeur.jpeg"
               alt="Directeur de Gomade Gabon"
               fill
               className="object-cover"
@@ -45,22 +45,6 @@ export default function DirectorSection() {
                 digitale des entreprises gabonaises. Nous mettons notre savoir-faire au service de votre croissance et
                 de votre réussite.
               </p>
-            </div>
-
-            {/* Stats Section */}
-            <div className="grid grid-cols-3 gap-4 pt-8 border-t border-border">
-              <div>
-                <div className="text-3xl font-bold text-primary">10+</div>
-                <div className="text-sm text-muted-foreground">Années d'expérience</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary">50+</div>
-                <div className="text-sm text-muted-foreground">Clients accompagnés</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary">100%</div>
-                <div className="text-sm text-muted-foreground">Satisfaction client</div>
-              </div>
             </div>
           </div>
         </div>

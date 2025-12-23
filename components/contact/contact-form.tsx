@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { AlertCircle, CheckCircle, Loader } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 
@@ -26,20 +26,15 @@ export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
 
-  // Initialize EmailJS (replace with your actual service ID)
-  const initEmailJS = () => {
-    if (!window.emailjs) {
-      // Load EmailJS script dynamically
-      const script = document.createElement('script')
-      script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js'
-      script.onload = () => {
-        if (window.emailjs) {
-          window.emailjs.init('YOUR_PUBLIC_KEY') // Replace with your EmailJS public key
-        }
-      }
-      document.head.appendChild(script)
+  // Initialize EmailJS on component mount
+  useEffect(() => {
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+    if (publicKey) {
+      emailjs.init(publicKey)
+    } else {
+      console.warn('EmailJS public key not configured in .env.local')
     }
-  }
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -51,16 +46,23 @@ export default function ContactForm() {
     setStatus('loading')
     setErrorMessage('')
 
-    try {
-      // Ensure EmailJS is initialized
-      if (!window.emailjs) {
-        initEmailJS()
-      }
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
 
+    // Validate environment variables
+    if (!serviceId || !templateId || !publicKey) {
+      setStatus('error')
+      setErrorMessage('Configuration EmailJS manquante. Veuillez vérifier vos variables d\'environnement.')
+      console.error('EmailJS configuration missing in .env.local')
+      return
+    }
+
+    try {
       // Send email via EmailJS
-      const response = await window.emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -68,9 +70,9 @@ export default function ContactForm() {
           company: formData.company,
           service: formData.service,
           message: formData.message,
-          to_email: 'contact@gomade.ga',
+          to_email: 'gabrielange748@gmail.com',
         },
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+        publicKey
       )
 
       if (response.status === 200) {

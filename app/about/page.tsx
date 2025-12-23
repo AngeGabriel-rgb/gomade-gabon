@@ -6,7 +6,7 @@ import TeamSection from '@/components/about/team-section'
 import MissionSection from '@/components/about/mission-section'
 import GoBackButton from '@/components/go-back-button' 
 import Breadcrumb from '@/components/ui/breadcrumb'
-
+import ValuesSection from '@/components/sections/values-section'
 export default function AboutPage() {
   
   const aboutPaths = [
@@ -29,9 +29,9 @@ export default function AboutPage() {
             <Breadcrumb paths={aboutPaths} />
           </div>
         </div>
-        
         <StorySection />
         <MissionSection />
+        <ValuesSection />
         <TeamSection />
       </main>
       <Footer />

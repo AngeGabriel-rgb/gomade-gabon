@@ -16,8 +16,10 @@ const nextConfig = {
       // Ajoutez d'autres domaines si nécessaire
     ],
     // Ancienne méthode (pour les versions plus anciennes de Next.js):
-    // domains: ['i.pinimg.com'], 
+    // domains: ['i.pinimg.com'],
+    qualities: [75, 80], // Niveaux de qualité optimisés pour les images
   },
 };
+
 
 module.exports = nextConfig;
