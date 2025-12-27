@@ -1,238 +1,142 @@
-"use client"
+import Header from '@/components/header'
+import Footer from '@/components/footer'
+import ScrollToTop from '@/components/scroll-to-top'
+import GoBackButton from '@/components/go-back-button' 
+import Breadcrumb from '@/components/ui/breadcrumb'
 
-import { useState, useEffect } from "react"
-import { X, Cookie, Settings, Check } from "lucide-react"
-import Link from "next/link"
+export default function PolitiqueCookiesPage() {
+  
+  const cookiePaths = [
+    { label: 'Politique de Cookies', href: '/politique-cookies', isCurrent: true },
+  ];
+  
+  return (
+    <>
+      <Header />
+      <main className="pt-16">
+        {/* En-tête de page avec Bouton Retour et Fil d'Ariane */}
+        <div className="container mx-auto px-4 pt-8 pb-4">
+          <div className="flex items-center gap-4 mb-2">
+            <GoBackButton />
+            <h1 className="text-3xl font-bold text-gray-900">Politique de Cookies</h1>
+          </div>
 
-interface CookiePreferences {
-  necessary: boolean
-  analytics: boolean
-  marketing: boolean
-}
-
-// Composant utilitaire pour le switch de préférence
-const PreferenceSwitch = ({ label, description, isChecked, isDisabled, onChange }: { 
-    label: string, 
-    description: string, 
-    isChecked: boolean, 
-    isDisabled: boolean, 
-    onChange?: () => void 
-  }) => (
-  <div className={`flex items-start justify-between p-4 rounded-lg transition-all ${isDisabled ? 'bg-gray-100' : 'bg-gray-50 hover:bg-gray-100'}`}>
-    <div className="flex-1">
-      <h4 className="text-black font-medium">{label}</h4>
-      <p className="text-sm text-gray-600 mt-1">{description}</p>
-    </div>
-    <div className="ml-4">
-      {isDisabled ? (
-        // Rendu pour le switch désactivé (nécessaire)
-        <div className="w-12 h-6 bg-[#DB2E33] rounded-full flex items-center justify-end px-1">
-          <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center">
-            <Check className="w-3 h-3 text-[#DB2E33]" />
+          <div className="ml-2">
+            <Breadcrumb paths={cookiePaths} />
           </div>
         </div>
-      ) : (
-        // Rendu pour le switch activable
-        <button
-          onClick={onChange}
-          className={`w-12 h-6 rounded-full flex items-center transition-colors ${
-            isChecked ? "bg-[#DB2E33] justify-end" : "bg-gray-300 justify-start"
-          } px-1`}
-        >
-          <div className="w-4 h-4 bg-white rounded-full" />
-        </button>
-      )}
-    </div>
-  </div>
-);
 
-
-export function CookieConsent() {
-  const [isVisible, setIsVisible] = useState(false)
-  const [showPreferences, setShowPreferences] = useState(false)
-  const [preferences, setPreferences] = useState<CookiePreferences>({
-    necessary: true, 
-    analytics: false,
-    marketing: false,
-  })
-
-  // ... (Logique useEffect, handleAcceptAll, handleSavePreferences, handleRejectAll, saveConsent, handleClose restent inchangées)
-  
-  // Raccourcir le code en laissant la logique JS derrière (omise ici pour la concision)
-  useEffect(() => {
-    const consent = localStorage.getItem("gomade-cookie-consent")
-    if (!consent) {
-      const timer = setTimeout(() => setIsVisible(true), 1000)
-      return () => clearTimeout(timer)
-    }
-  }, [])
-
-  const handleAcceptAll = () => {
-    const allPreferences: CookiePreferences = { necessary: true, analytics: true, marketing: true }
-    saveConsent(allPreferences)
-  }
-
-  const handleSavePreferences = () => {
-    saveConsent(preferences)
-  }
-
-  const handleRejectAll = () => {
-    const minimalPreferences: CookiePreferences = { necessary: true, analytics: false, marketing: false }
-    saveConsent(minimalPreferences)
-  }
-
-  const saveConsent = (prefs: CookiePreferences) => {
-    const consentData = { preferences: prefs, timestamp: new Date().toISOString(), version: "1.0" }
-    localStorage.setItem("gomade-cookie-consent", JSON.stringify(consentData))
-
-    document.cookie = `gomade_necessary=true; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`
-    if (prefs.analytics) {
-      document.cookie = `gomade_analytics=true; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`
-    }
-    if (prefs.marketing) {
-      document.cookie = `gomade_marketing=true; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`
-    }
-
-    setIsVisible(false)
-  }
-
-  const handleClose = () => {
-    setIsVisible(false)
-  }
-
-
-  if (!isVisible) return null
-
-  return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 animate-fade-in-up">
-      <div className="max-w-4xl mx-auto">
-        {/* FOND BLANC et BORDURE plus claire */}
-        <div className="bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden">
-          
-          {/* Main Banner */}
-          {!showPreferences && (
-            <div className="p-6">
-              <div className="flex items-start gap-4">
-                
-                {/* Cookie Icon */}
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center">
-                  <Cookie className="w-6 h-6 text-orange-500" />
-                </div>
-
-                {/* Text Content */}
-                {/* TEXTE NOIR sur fond BLANC */}
-                <div className="flex-1 text-sm text-gray-700">
+        <section className="pb-20">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="prose prose-lg max-w-none">
+              <div className="space-y-8 text-gray-700">
+                <div>
+                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">Qu'est-ce qu'un cookie ?</h2>
                   <p>
-                    Ce site utilise des cookies et collecte vos données personnelles (nom, email, téléphone, entreprise) pour améliorer votre expérience et traiter vos demandes. Découvrez comment nous
-                    utilisons vos données dans notre{" "}
-                    <Link
-                      href="/politique-cookies"
-                      className="text-[#DB2E33] hover:text-[#B82530] underline transition-colors"
-                    >
-                      Avis sur les cookies
-                    </Link>
-                    .
+                    Un cookie est un petit fichier texte stocké sur votre appareil (ordinateur, tablette, smartphone) 
+                    lorsque vous visitez un site web. Les cookies permettent au site de mémoriser vos actions et préférences 
+                    sur une période donnée, afin que vous n'ayez pas à les ressaisir à chaque fois que vous revenez sur le site 
+                    ou naviguez d'une page à l'autre.
                   </p>
                 </div>
 
-                {/* Close Button */}
-                <button
-                  onClick={handleClose}
-                  className="flex-shrink-0 p-1 text-gray-400 hover:text-gray-800 transition-colors"
-                  aria-label="Fermer"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
+                <div>
+                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">Comment utilisons-nous les cookies ?</h2>
+                  <p>
+                    GOMADE GABON utilise des cookies pour améliorer votre expérience de navigation et traiter vos demandes. 
+                    Nous collectons également vos données personnelles (nom, email, téléphone, entreprise) lorsque vous 
+                    remplissez nos formulaires de contact.
+                  </p>
+                </div>
 
-              {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 mt-6">
-                {/* Bouton Personnaliser (BLANC avec bordure GRISE) */}
-                <button
-                  onClick={() => setShowPreferences(true)}
-                  className="flex-1 px-6 py-3 border border-gray-300 text-gray-800 rounded-lg hover:bg-gray-100 transition-colors text-sm font-medium flex items-center justify-center gap-2"
-                >
-                  <Settings className="w-4 h-4" />
-                  Personnaliser les cookies
-                </button>
-                {/* Bouton OK (ROUGE inchangé) */}
-                <button
-                  onClick={handleAcceptAll}
-                  className="flex-1 px-6 py-3 bg-[#DB2E33] hover:bg-[#B82530] text-white rounded-lg transition-colors text-sm font-medium"
-                >
-                  OK!
-                </button>
+                <div>
+                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">Types de cookies utilisés</h2>
+                  
+                  <div className="space-y-6 mt-4">
+                    <div className="border-l-4 border-[#DB2E33] pl-4">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">Cookies nécessaires</h3>
+                      <p>
+                        Ces cookies sont essentiels au fonctionnement du site et au traitement sécurisé de vos données personnelles. 
+                        Ils ne peuvent pas être désactivés. Ils sont généralement définis en réponse à des actions que vous effectuez 
+                        et qui équivalent à une demande de services, comme la définition de vos préférences de confidentialité, 
+                        la connexion ou le remplissage de formulaires.
+                      </p>
+                    </div>
+
+                    <div className="border-l-4 border-gray-300 pl-4">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">Cookies analytiques</h3>
+                      <p>
+                        Ces cookies nous aident à comprendre comment les visiteurs interagissent avec notre site web en collectant 
+                        et en rapportant des informations de manière anonyme. Ces données nous permettent d'améliorer continuellement 
+                        nos services et votre expérience utilisateur.
+                      </p>
+                    </div>
+
+                    <div className="border-l-4 border-gray-300 pl-4">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">Cookies marketing</h3>
+                      <p>
+                        Ces cookies permettent la personnalisation de votre expérience. Vos préférences et données de navigation 
+                        sont collectées pour adapter le contenu et les offres à vos intérêts. Ces cookies peuvent également être 
+                        utilisés pour limiter le nombre de fois que vous voyez une publicité et pour mesurer l'efficacité des 
+                        campagnes publicitaires.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">Gestion de vos préférences</h2>
+                  <p>
+                    Vous pouvez à tout moment modifier ou retirer votre consentement concernant les cookies en cliquant sur 
+                    le bouton "Paramètres des cookies" dans la bannière de cookies ou en accédant à cette page. 
+                    Vous pouvez également configurer votre navigateur pour refuser les cookies, bien que cela puisse affecter 
+                    certaines fonctionnalités du site.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">Conservation des données</h2>
+                  <p>
+                    Les cookies nécessaires sont conservés pendant la durée de votre session ou jusqu'à un an maximum. 
+                    Les cookies analytiques et marketing sont conservés conformément à vos préférences et peuvent être 
+                    supprimés à tout moment via les paramètres de votre navigateur.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">Vos droits</h2>
+                  <p>
+                    Conformément à la réglementation en vigueur, vous disposez d'un droit d'accès, de rectification, 
+                    de suppression et d'opposition concernant vos données personnelles. Pour exercer ces droits, 
+                    vous pouvez nous contacter via notre formulaire de contact ou par email.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">Mise à jour de cette politique</h2>
+                  <p>
+                    Nous pouvons mettre à jour cette politique de cookies de temps à autre pour refléter les changements 
+                    dans nos pratiques ou pour d'autres raisons opérationnelles, légales ou réglementaires. 
+                    Nous vous encourageons à consulter régulièrement cette page pour rester informé de notre utilisation des cookies.
+                  </p>
+                </div>
+
+                <div className="mt-8 p-6 bg-gray-50 rounded-lg">
+                  <p className="text-sm text-gray-600">
+                    <strong>Dernière mise à jour :</strong> {new Date().toLocaleDateString('fr-FR', { 
+                      year: 'numeric', 
+                      month: 'long', 
+                      day: 'numeric' 
+                    })}
+                  </p>
+                </div>
               </div>
             </div>
-          )}
-
-          {/* Preferences Panel */}
-          {showPreferences && (
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-6">
-                {/* TITRE NOIR sur fond BLANC */}
-                <h3 className="text-lg font-semibold text-black">Paramètres des cookies</h3>
-                <button
-                  onClick={handleClose}
-                  className="p-1 text-gray-400 hover:text-gray-800 transition-colors"
-                  aria-label="Fermer"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              {/* Utilisation du composant PreferenceSwitch pour réduire la longueur du code JSX ici */}
-              <div className="space-y-4 mb-6">
-                <PreferenceSwitch
-                    label="Cookies nécessaires"
-                    description="Essentiels au fonctionnement du site. Ils ne peuvent pas être désactivés."
-                    isChecked={true}
-                    isDisabled={true}
-                />
-                <PreferenceSwitch
-                    label="Cookies analytiques"
-                    description="Nous aident à comprendre comment les visiteurs interagissent avec le site."
-                    isChecked={preferences.analytics}
-                    isDisabled={false}
-                    onChange={() => setPreferences((p) => ({ ...p, analytics: !p.analytics }))}
-                />
-                <PreferenceSwitch
-                    label="Cookies marketing"
-                    description="Utilisés pour vous proposer des contenus personnalisés et des publicités ciblées."
-                    isChecked={preferences.marketing}
-                    isDisabled={false}
-                    onChange={() => setPreferences((p) => ({ ...p, marketing: !p.marketing }))}
-                />
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3">
-                {/* Bouton Retour (CLAIR) */}
-                <button
-                  onClick={() => setShowPreferences(false)}
-                  className="flex-1 px-6 py-3 border border-gray-300 text-gray-800 rounded-lg hover:bg-gray-100 transition-colors text-sm font-medium"
-                >
-                  Retour
-                </button>
-                {/* Bouton Refuser tout (CLAIR) */}
-                <button
-                  onClick={handleRejectAll}
-                  className="flex-1 px-6 py-3 border border-gray-300 text-gray-800 rounded-lg hover:bg-gray-100 transition-colors text-sm font-medium"
-                >
-                  Refuser tout
-                </button>
-                {/* Bouton Enregistrer (ROUGE inchangé) */}
-                <button
-                  onClick={handleSavePreferences}
-                  className="flex-1 px-6 py-3 bg-[#DB2E33] hover:bg-[#B82530] text-white rounded-lg transition-colors text-sm font-medium"
-                >
-                  Enregistrer
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+      <ScrollToTop />
+    </>
   )
 }
