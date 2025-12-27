@@ -35,7 +35,7 @@ export default function ContactPage() {
             <div className="text-center mb-16">
               {/* Le titre original est masqué/retiré car le h1 est maintenant en haut */}
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Avez des questions? Nous serions ravis d'en discuter avec vous.
+              Vous cherchez à analyser les grandes tendances du marché, à faire face aux nouveaux enjeux ou à connaitre le niveau de satisfaction de vos clients… Contactez-nous !
               </p>
             </div>
 

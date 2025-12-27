@@ -33,10 +33,10 @@ export default function QuickContact() {
 
           <div className="flex-1 mt-8 md:mt-0 flex flex-col md:flex-row gap-4 md:justify-end w-full md:w-auto">
             <a
-              href="https://wa.me/241"
+              href="https://wa.me/24174511172?text=Bonjour,%20je%20souhaite%20connaître%20vos%20services%20et%20obtenir%20un%20devis%20gratuit."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 bg-white text-accent-red px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/95 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center justify-center gap-3 bg-white text-primary px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/95 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
             >
               <MessageCircle size={24} />
               Nous contacter

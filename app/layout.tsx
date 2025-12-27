@@ -21,11 +21,11 @@ export const metadata: Metadata = {
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/gomades.svg',
+        url: '/Asset 2.svg',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/gomade.png',
+    apple: 'Asset 2.svg',
   },
 }
 
