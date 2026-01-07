@@ -26,6 +26,14 @@ export default function StorySection() {
           <p className="text-lg text-muted-foreground leading-relaxed">
             Nous réalisons pour vous des enquêtes marketing et sondages au Gabon et en Afrique quel que soit votre domaine d'activité. Dynamique, ambitieux et ayant une connaissance approfondie des enjeux liés à la disponibilité et à la fiabilité des données, GOMADE-GABON est votre meilleur partenaire en matière de collecte et traitement de données au Gabon en particulier et en Afrique en général.
           </p>
+
+          <h2 className="text-2xl font-semibold text-foreground mb-3 mt-6">Nos missions</h2>
+          <ul className="text-lg text-muted-foreground leading-relaxed space-y-2">
+            <li>• Mieux connaitre vos marchés et vos consommateurs</li>
+            <li>• Identifier les dysfonctionnements de votre organisation</li>
+            <li>• Faciliter votre prise de décision grâce à des données objectives et fiables</li>
+            <li>•Devenir un acteur international majeur dans le domaine des études de marchés, de sondages au Gabon et notamment dans la sous-région région d’Afrique centrale.</li>
+          </ul>
         </div>
       </div>
     </section>

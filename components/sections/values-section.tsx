@@ -1,130 +1,126 @@
-"use client"
-
-import { useEffect } from "react"
-import { Trophy, Handshake, Briefcase, Lock, Users } from "lucide-react"
 import Image from "next/image"
-
-declare global {
-  interface Window {
-    UnicornStudio?: {
-      isInitialized: boolean
-      init: () => void
-    }
-  }
-}
+import { Trophy, Handshake, Briefcase, Lock, Users } from "lucide-react"
 
 export default function ValuesSection() {
   const values = [
     {
       icon: Trophy,
       title: "L'excellence",
-      gradient: "from-amber-400 to-orange-500",
+      description: "Nous visons toujours l'excellence dans nos livrables et nos méthodes de travail.",
     },
     {
       icon: Handshake,
       title: "Le respect du client",
-      gradient: "from-blue-400 to-cyan-500",
+      description: "Son implication durant tout le déroulement du projet est important pour nous.",
     },
     {
       icon: Users,
       title: "La franchise et l'intégrité",
-      gradient: "from-purple-400 to-pink-500",
+      description: "Nous ne proposons rien au-delà des compétences qui sont nôtres.",
     },
     {
       icon: Briefcase,
       title: "Le professionnalisme",
-      gradient: "from-emerald-400 to-teal-500",
+      description:
+        "Nous mettons uniquement des compétences au service du client pour une solution idoine au problème posé.",
     },
     {
       icon: Lock,
       title: "La confidentialité",
-      gradient: "from-slate-400 to-gray-600",
+      description:
+        "Nous garantissons la stricte confidentialité des informations qui nous sont fournies avant, pendant et après notre action.",
     },
   ]
 
-  useEffect(() => {
-    if (typeof window === "undefined") return
-
-    if (!window.UnicornStudio) {
-      window.UnicornStudio = { isInitialized: false, init: () => {} }
-      const script = document.createElement("script")
-      script.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js"
-      script.onload = () => {
-        if (window.UnicornStudio && !window.UnicornStudio.isInitialized) {
-          window.UnicornStudio.init()
-          window.UnicornStudio.isInitialized = true
-        }
-      }
-      document.head.appendChild(script)
-    } else if (!window.UnicornStudio.isInitialized) {
-      window.UnicornStudio.init()
-      window.UnicornStudio.isInitialized = true
-    }
-  }, [])
-
   return (
-    <section className="py-20 sm:py-28 relative overflow-hidden">
-      <Image src="valeur.webp" alt="" fill className="object-cover -z-20" priority />
-
-      {/* Animation UnicornStudio en arrière-plan */}
-      <div
-        data-us-project="p7Ff6pfTrb5Gs59C7nLC"
-        className="absolute w-full h-full left-0 top-0 -z-10 mix-blend-overlay opacity-60"
-      ></div>
-
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-slate-800/80 to-primary/40 -z-10" />
-
-      {/* Motifs décoratifs */}
-      <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
-        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
+    <section className="py-24 relative overflow-hidden text-white">
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="https://i.pinimg.com/1200x/73/a0/74/73a074286e4ed8ca6c36345232b2fb39.jpg"
+          alt="Image de fond pour la section Valeurs"
+          fill
+          className="object-cover"
+          quality={80}
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-900/70 to-slate-800/80" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-12 sm:mb-16">
-          <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium text-white mb-4">
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-medium text-white/90 mb-6">
             Ce qui nous définit
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white tracking-tight">Nos Valeurs</h2>
-          <p className="text-lg text-gray-200 max-w-2xl mx-auto leading-relaxed">
-            Ce qui guide chacune de nos actions et décisions
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-white tracking-tight">Nos Valeurs</h2>
+          <p className="text-lg text-white/70 max-w-xl mx-auto leading-relaxed">
+            Les principes fondamentaux qui guident chacune de nos actions et décisions
           </p>
         </div>
 
-        {/* Grille responsive des valeurs */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8">
-          {values.map((value) => {
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {values.slice(0, 3).map((value, index) => {
             const IconComponent = value.icon
             return (
-              <div key={value.title} className="group">
-                {/* Card circulaire */}
-                <div className="relative aspect-square max-w-[160px] sm:max-w-[180px] mx-auto">
-                  {/* Glow effect */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${value.gradient} rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-300`}
-                  />
-
-                  <div className="relative w-full h-full bg-white/95 backdrop-blur-sm rounded-full flex flex-col items-center justify-center p-4 sm:p-6 shadow-2xl border border-white/50 group-hover:scale-105 group-hover:shadow-primary/20 transition-all duration-300">
-                    {/* Icon */}
-                    <IconComponent
-                      className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-primary mb-2"
-                      strokeWidth={1.5}
-                    />
-
-                    {/* Title */}
-                    <h3 className="text-xs sm:text-sm font-bold text-slate-900 text-center leading-tight">
+              <div
+                key={value.title}
+                className="group relative rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+              >
+                {/* Icône avec cercle de fond */}
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center shadow-lg shadow-red-500/20">
+                    <IconComponent className="w-7 h-7 text-white" strokeWidth={1.5} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-400 transition-colors">
                       {value.title}
                     </h3>
+                    <p className="text-sm text-white/70 leading-relaxed">{value.description}</p>
                   </div>
                 </div>
 
-                {/* Description visible on hover / always on mobile */}
-                <p className="mt-3 text-xs sm:text-sm text-gray-200 text-center opacity-80 group-hover:opacity-100 transition-opacity line-clamp-3 px-2">
-                
-                </p>
+                {/* Numéro décoratif */}
+                <span className="absolute top-4 right-4 text-5xl font-bold text-white/5 select-none">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
               </div>
             )
           })}
+        </div>
+
+        <div className="flex flex-col sm:flex-row justify-center gap-6 mt-6">
+          {values.slice(3, 5).map((value, index) => {
+            const IconComponent = value.icon
+            return (
+              <div
+                key={value.title}
+                className="group relative rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+              >
+                {/* Icône avec cercle de fond */}
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center shadow-lg shadow-red-500/20">
+                    <IconComponent className="w-7 h-7 text-white" strokeWidth={1.5} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-400 transition-colors">
+                      {value.title}
+                    </h3>
+                    <p className="text-sm text-white/70 leading-relaxed">{value.description}</p>
+                  </div>
+                </div>
+
+                {/* Numéro décoratif */}
+                <span className="absolute top-4 right-4 text-5xl font-bold text-white/5 select-none">
+                  {String(index + 4).padStart(2, "0")}
+                </span>
+              </div>
+            )
+          })}
+        </div>
+
+        <div className="mt-16 flex items-center justify-center gap-4">
+          <div className="h-px w-16 bg-gradient-to-r from-transparent to-white/30" />
+          <div className="w-2 h-2 rounded-full bg-red-500" />
+          <div className="h-px w-16 bg-gradient-to-l from-transparent to-white/30" />
         </div>
       </div>
     </section>

@@ -15,15 +15,15 @@ export default function ServicesPage() {
       icon: BarChart3,
       title: "Études de Marché",
       description:
-        "Nous intervenons dans la réalisation des études de marché pour vérifier la cohérence commerciale d'un projet et analyser les tendances de votre futur marché.",
+        "Nous intervenons dans la réalisation des études de marchés. Vous avez un projet et vous souhaitez vérifier s'il est cohérent du point de vue commercial et qu'il y'a une réelle opportunité à saisir? nous sommes disposés à vous accompagner et à analyser les tendances de votre futur marché.",
       backgroundImage: "https://i.pinimg.com/1200x/9a/28/cd/9a28cdf44c9efa4453d78171edcf8896.jpg",
     },
     {
       id: "sondages",
       icon: TrendingUp,
-      title: "Sondages d'Opinion",
+      title: "Sondages",
       description:
-        "Grâce à nos sondages sur mesure, vous identifierez les éléments de satisfaction de vos clients et pourrez mettre en place des actions correctives ou repenser votre stratégie.",
+        "Nous intervenons dans la réalisation de vos sondages. Grâce à nos sondages sur mesure, vous serez capable d'identifier les éléments de satisfaction de vos clients et de mettre en place des actions pour améliorer vos produits ou services, voire de changer de stratégie.",
       backgroundImage: "https://i.pinimg.com/1200x/24/86/4f/24864fa604c48845ee9e64ebc6441c3c.jpg",
     },
     {
@@ -31,7 +31,7 @@ export default function ServicesPage() {
       icon: PieChart,
       title: "Enquêtes Marketing",
       description:
-        "Collecte et analyse stratégique de données pour optimiser vos campagnes marketing, segmenter votre audience et maximiser votre ROI.",
+        "Nos enquêtes marketing vous permettent de comprendre votre audience cible, de tester de nouveaux concepts et d'optimiser vos campagnes marketing. Collecte et analyse de données pour maximiser votre ROI.",
       backgroundImage: "https://i.pinimg.com/736x/44/9e/b4/449eb4f6ef9a4a502045e600f4469ed2.jpg",
     },
   ]
@@ -58,7 +58,7 @@ export default function ServicesPage() {
             <div className="text-center mb-8">
               <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-3">Nos Services</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Des solutions d'études et de recherche adaptées à vos besoins spécifiques.
+          Nous réalisons pour vous des enquêtes Marketing et sondages au Gabon et en Afrique quel que soit votre domaine d’activité.
               </p>
             </div>
 
@@ -123,33 +123,33 @@ export default function ServicesPage() {
         <ServiceDetail
           id="etudes"
           title="Études de Marché"
-          description="Comprenez votre marché en profondeur"
-          fullDescription="Nos études de marché fournissent une analyse complète de votre secteur, de la concurrence, des tendances et des opportunités. Nous utilisons des méthodologies reconnues pour collecter et analyser les données essentielles à votre stratégie."
+          description="Vérifier la cohérence commerciale de votre projet"
+          fullDescription="Nous intervenons dans la réalisation des études de marchés. Vous avez un projet et vous souhaitez vérifier s'il est cohérent du point de vue commercial et qu'il y'a une réelle opportunité à saisir? nous sommes disposés à vous accompagner et à analyser les tendances de votre futur marché."
           benefits={[
-            "Analyse compétitive approfondie",
-            "Identification des tendances de marché",
-            "Évaluation du potentiel de croissance",
-            "Analyse des consommateurs et besoins",
-            "Recommandations stratégiques",
+            "Vérification de la cohérence commerciale",
+            "Analyse des tendances de marché",
+            "Identification des opportunités",
+            "Étude de faisabilité complète",
+            "Recommandations stratégiques fondées sur les données",
           ]}
         />
         <ServiceDetail
           id="sondages"
-          title="Sondages d'Opinion"
-          description="Mesurez l'opinion publique et les perceptions"
-          fullDescription="Les sondages d'opinion permettent de mesurer les attitudes, les perceptions et les intentions du public. Essentiels pour les campagnes politiques, les initiatives publiques et les stratégies de communication."
+          title="Sondages"
+          description="Identifier les éléments de satisfaction de vos clients"
+          fullDescription="Nous intervenons dans la réalisation de vos sondages. Grâce à nos sondages sur mesure, vous serez capable d'identifier les éléments de satisfaction de vos clients et de mettre en place des actions pour améliorer vos produits ou services, voire de changer de stratégie."
           benefits={[
-            "Méthodologies scientifiques et rigoureuses",
-            "Représentativité de l'échantillon garantie",
-            "Analyses statistiques avancées",
-            "Visualisations claires des résultats",
-            "Rapports détaillés et interprétations",
+            "Identification des éléments de satisfaction clients",
+            "Sondages sur mesure adaptés à vos besoins",
+            "Actions correctives et stratégiques",
+            "Amélioration continue des produits/services",
+            "Rapports détaillés avec recommandations",
           ]}
         />
         <ServiceDetail
           id="enquetes"
           title="Enquêtes Marketing"
-          description="Optimisez vos stratégies marketing"
+          description="Optimiser vos stratégies marketing"
           fullDescription="Nos enquêtes marketing vous permettent de comprendre votre audience cible, de tester de nouveaux concepts et d'optimiser vos campagnes marketing. Collecte et analyse de données pour maximiser votre ROI."
           benefits={[
             "Tests de concepts et prototypes",

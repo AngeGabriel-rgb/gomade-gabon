@@ -3,7 +3,8 @@
 export default function PartnersSection() {
   const partners = [
     { name: 'Partenaire 1', logo: '/partenaires/ipsos.png' },
-  ]
+    { name: 'Partenaire 2', logo: '/partenaires/wildaid.png' },
+    { name: 'Partenaire 3', logo: '/partenaires/advise.png' },]
 
   return (
     <section className="py-20 bg-gray-100">

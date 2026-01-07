@@ -8,7 +8,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'GOMADE GABON - Études de Marché & Sondages d\'Opinion',
+  title: 'GOMADE GABON - Études de Marché , Sondages d\'Opinion & Enquêtes Marketing',
   description: 'Cabinet d\'études de marchés et sondages d\'opinion. Accompagnez votre entreprise vers des décisions stratégiques éclairées.',
   icons: {
     icon: [

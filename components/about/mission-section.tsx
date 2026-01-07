@@ -20,9 +20,9 @@ export default function MissionSection() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
             <div className="absolute bottom-0 left-0 p-8 text-white">
-              <span className="text-red-600 font-bold text-sm uppercase tracking-wide">Notre Mission</span>
+              <span className="text-red-600 font-bold text-sm uppercase tracking-wide">Nos Missions</span>
               <h2 className="text-3xl lg:text-4xl font-bold mt-2 leading-tight">
-                Faciliter votre prise de décision grâce à des données objectives et fiables.
+                Accompagner les entreprises dans leurs décisions marketing
               </h2>
             </div>
           </div>
@@ -66,10 +66,8 @@ export default function MissionSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
               <div className="absolute bottom-0 left-0 p-8 text-white">
                 <span className="text-red-600 font-bold text-sm uppercase tracking-wide">Nos Valeurs</span>
-                <h3 className="text-2xl font-bold mt-2 leading-tight">Excellence, respect et intégrité.</h3>
-                <p className="mt-2 text-sm text-white/90">
-                  Le professionnalisme et la confidentialité guident chacune de nos actions.
-                </p>
+                <h3 className="text-2xl font-bold mt-2 leading-tight">Excellence, respect, intégrité, le professionnalisme et la confidentialité.</h3>
+              
               </div>
             </div>
           </div>
