@@ -8,7 +8,7 @@ export default function QuickContact() {
   return (
     <section className="relative py-28">
       <Image
-        src="/contact/collaboration.png"
+        src="/collab.jpg"
         alt="Contact background"
         fill
         className="absolute inset-0 w-full h-full object-cover opacity-90 -z-10"
@@ -16,7 +16,7 @@ export default function QuickContact() {
       <div 
         className="absolute inset-0 w-full h-full -z-10"
         style={{
-          background: 'linear-gradient(137.92deg, rgba(165, 70, 73, 0.85) 20.43%, rgba(220, 60, 65, 0.8) 49.66%, rgba(200, 30, 35, 0.9) 92.38%)'
+          background: 'linear-gradient(137.92deg, rgba(78, 25, 26, 0.85) 20.43%, rgba(220, 60, 65, 0.8) 49.66%, rgba(200, 30, 35, 0.9) 92.38%)'
         }}
       />
 

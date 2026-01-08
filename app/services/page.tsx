@@ -21,7 +21,7 @@ export default function ServicesPage() {
     {
       id: "sondages",
       icon: TrendingUp,
-      title: "Sondages",
+      title: "Sondages d'Opinion",
       description:
         "Nous intervenons dans la réalisation de vos sondages. Grâce à nos sondages sur mesure, vous serez capable d'identifier les éléments de satisfaction de vos clients et de mettre en place des actions pour améliorer vos produits ou services, voire de changer de stratégie.",
       backgroundImage: "https://i.pinimg.com/1200x/24/86/4f/24864fa604c48845ee9e64ebc6441c3c.jpg",
@@ -135,7 +135,7 @@ export default function ServicesPage() {
         />
         <ServiceDetail
           id="sondages"
-          title="Sondages"
+          title="Sondages d'Opinion"
           description="Identifier les éléments de satisfaction de vos clients"
           fullDescription="Nous intervenons dans la réalisation de vos sondages. Grâce à nos sondages sur mesure, vous serez capable d'identifier les éléments de satisfaction de vos clients et de mettre en place des actions pour améliorer vos produits ou services, voire de changer de stratégie."
           benefits={[

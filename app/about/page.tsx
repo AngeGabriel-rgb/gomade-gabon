@@ -3,7 +3,6 @@ import Footer from '@/components/footer'
 import ScrollToTop from '@/components/scroll-to-top'
 import StorySection from '@/components/about/story-section'
 import TeamSection from '@/components/about/team-section'
-import MissionSection from '@/components/about/mission-section'
 import GoBackButton from '@/components/go-back-button' 
 import Breadcrumb from '@/components/ui/breadcrumb'
 import ValuesSection from '@/components/sections/values-section'
@@ -30,7 +29,7 @@ export default function AboutPage() {
           </div>
         </div>
         <StorySection />
-        <MissionSection />
+   
         <ValuesSection />
         <TeamSection />
       </main>

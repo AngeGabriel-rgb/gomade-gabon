@@ -1,10 +1,10 @@
 # GOMADE GABON - Site Web
 
-Site web officiel de **GOMADE GABON**, cabinet d'études de marchés et de sondages d'opinion au Gabon.
+Site web officiel de **GOMADE GABON**, cabinet d'Études de Marchés et de Sondages d'Opinion au Gabon.
 
 ## 📋 Description
 
-GOMADE GABON est un cabinet spécialisé dans les études de marchés et les sondages d'opinion qui accompagne les entreprises et institutions dans la connaissance approfondie de leurs marchés et de leurs cibles, afin de les orienter vers des prises de décisions marketing stratégiques.
+GOMADE GABON est un cabinet spécialisé dans les Études de Marchés et les Sondages d'Opinion qui accompagne les entreprises et institutions dans la connaissance approfondie de leurs marchés et de leurs cibles, afin de les orienter vers des prises de décisions marketing stratégiques.
 
 ## 🏗️ Architecture du Projet
 

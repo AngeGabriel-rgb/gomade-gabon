@@ -44,7 +44,7 @@ export default function DirectorSection() {
               <p>
                 Mon expertise est couronnée de{" "}
                 <span className="font-semibold text-foreground">12 années d'expériences</span> à Cible Gabon,
-                Positionnement Marketing, Ipsos, Advices études et conseils... et couvre l'accompagnement stratégique,
+                Positionnement Marketing, Ipsos, Nielsen, Advices études et conseils... et couvre l'accompagnement stratégique,
                 le conseil en gestion et la transformation digitale des entreprises.
               </p>
             </div>

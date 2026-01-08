@@ -32,9 +32,9 @@ export default function Footer() {
     {
       label: "Services",
       items: [
-        { href: "/services#etudes", name: "Études de marché" },
-        { href: "/services#sondages", name: "Sondages d'opinion" },
-        { href: "/services#enquetes", name: "Enquêtes marketing" },
+        { href: "/services#etudes", name: "Études de Marché" },
+        { href: "/services#sondages", name: "Sondages d'Opinion" },
+        { href: "/services#enquetes", name: "Enquêtes Marketing" },
       ],
     },
   ]
@@ -53,7 +53,7 @@ export default function Footer() {
               <Image src="/gomade.png" alt="Logo GOMADE" width={120} height={100} className="rounded-lg shadow-lg" />
             </Link>
             <p className="text-sm leading-relaxed opacity-80 mb-6">
-              Cabinet d'études de marchés et sondages d'opinion au Gabon. Votre partenaire de confiance pour des
+              Cabinet d'Études de Marchés, Sondages d'Opinion et Enquêtes Marketing au Gabon. Votre partenaire de confiance pour des
               insights stratégiques.
             </p>
 
