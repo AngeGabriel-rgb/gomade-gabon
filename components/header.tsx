@@ -52,7 +52,7 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-3 group" aria-label="GOMADE GABON - Accueil">
           <div className="relative w-10 h-10 sm:w-12 sm:h-12 overflow-hidden rounded-xl shadow-md group-hover:shadow-lg transition-shadow duration-300">
             <Image
-              src="/gomadeg.jpg"
+              src="/gomadeG.jpg"
               alt="GOMADE GABON Logo"
               width={48}
               height={48}
