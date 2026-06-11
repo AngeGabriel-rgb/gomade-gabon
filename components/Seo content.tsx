@@ -185,10 +185,10 @@ export default function SeoContent() {
             enquête marketing ou étude de marché au Gabon, contactez GOMADE :
           </p>
           <ul>
-            <li>Téléphone : +241 74 51 11 72</li>
+            <li>Téléphone : +241 04 51 11 72</li>
             <li>Email : goodmarketingdecisionsgabon@gmail.com</li>
             <li>Adresse : Dernière Kar motors, bas de Guegue, Libreville, Gabon</li>
-            <li>WhatsApp : Contact direct pour réponse rapide</li>
+            <li>WhatsApp : 066 73 19 76</li>
           </ul>
           <p>
             Notre équipe vous répondra dans les 24h pour discuter de vos besoins et vous proposer 

@@ -147,7 +147,7 @@ export default function RootLayout({
                 "longitude": "9.4673"
               },
               "url": "https://www.gomadegabon.com",
-              "telephone": "+24174511172",
+              "telephone": "+24104511172",
               "email": "goodmarketingdecisionsgabon@gmail.com",
               "priceRange": "$$",
               "openingHoursSpecification": {
@@ -163,7 +163,7 @@ export default function RootLayout({
                 "closes": "17:00"
               },
               "sameAs": [
-                "https://wa.me/24174511172"
+                "https://wa.me/24166731976"
               ],
               "areaServed": {
                 "@type": "Country",

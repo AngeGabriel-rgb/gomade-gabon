@@ -30,7 +30,7 @@ export default function Header() {
     { href: "/contact", label: "Contact" },
   ]
 
-  const whatsappNumber = "24174511172"
+  const whatsappNumber = "24166731976"
   const whatsappMessage = encodeURIComponent("Bonjour, je souhaite connaître vos services et obtenir un devis gratuit.")
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 

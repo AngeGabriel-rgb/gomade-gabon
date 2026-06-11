@@ -245,8 +245,8 @@ Le site est configuré pour être déployé sur **Vercel** (recommandé pour Nex
 ## 📞 Contact
 
 - **Email**: goodmarketingdecisionsgabon@gmail.com
-- **Téléphone**: +241 74 51 11 72
-- **WhatsApp**: +241 74 51 11 72 (disponible via le bouton dans le header)
+- **Téléphone**: +241 04 51 11 72
+- **WhatsApp**: 066 73 19 76 (disponible via le bouton dans le header)
 - **Adresse**: Dernière Kar motors, bas de Guegue, Libreville, Gabon
 - **Facebook**: [https://www.facebook.com/profile.php?id=100085517989223](https://www.facebook.com/profile.php?id=100085517989223)
 
