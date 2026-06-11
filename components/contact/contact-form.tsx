@@ -171,7 +171,7 @@ export default function ContactForm() {
                 onFocus={() => setFocusedField("phone")}
                 onBlur={() => setFocusedField(null)}
                 className={inputClasses("phone")}
-                placeholder="+241 74 51 11 72"
+                placeholder="+241 04 51 11 72"
               />
             </div>
           </div>

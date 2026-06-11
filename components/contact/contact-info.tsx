@@ -6,9 +6,16 @@ export default function ContactInfo() {
   const info = [
     {
       icon: Phone,
-      label: "Téléphone",
-      value: "+241 74 51 11 72",
-      link: "tel:+24174511172",
+      label: "Téléphone Principal",
+      value: "+241 04 51 11 72",
+      link: "tel:+24104511172",
+      color: "bg-blue-500/10 text-blue-600",
+    },
+    {
+      icon: Phone,
+      label: "Téléphone WhatsApp",
+      value: "066 73 19 76",
+      link: "tel:066731976",
       color: "bg-blue-500/10 text-blue-600",
     },
     {
@@ -103,7 +110,7 @@ export default function ContactInfo() {
           </p>
 
           <a
-            href="https://wa.me/24174511172?text=Bonjour,%20je%20souhaite%20connaître%20vos%20services%20et%20obtenir%20un%20devis%20gratuit."
+            href="https://wa.me/24166731976?text=Bonjour,%20je%20souhaite%20connaître%20vos%20services%20et%20obtenir%20un%20devis%20gratuit."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-white text-emerald-600 px-6 py-3.5 rounded-xl font-bold hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-lg"
